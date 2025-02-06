@@ -45,6 +45,7 @@ func startRepl(cfg *config) {
 			if err != nil {
 				fmt.Println(err)
 			}
+			fmt.Println()
 		} else {
 			fmt.Println("Unknown Command")
 		}
@@ -82,13 +83,23 @@ func getCommands() map[string]cliCommand {
 		},
 		"explore": {
 			name:        "explore",
-			description: "Lists all pokemon in a given location area",
+			description: "Lists all pokemon in a given location area. Usage: explore <location-area>",
 			callback:    commandExplore,
 		},
 		"catch": {
 			name:        "catch",
 			description: "Attempt to catch a pokemon and add it to your pokedex. Usage: catch <pokemon_name>",
 			callback:    commandCatch,
+		},
+		"inspect": {
+			name:        "inspect",
+			description: "Inspect a Pokemon you've caught. Usage: inspect <pokemon_name>",
+			callback:    commandInspect,
+		},
+		"pokedex": {
+			name:        "pokedex",
+			description: "Show a list of all the Pokemon you've caught",
+			callback:    commandPokedex,
 		},
 	}
 }
